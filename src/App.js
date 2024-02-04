@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
+import "../src/App.css";
+
+import Home from "./Pages/Home";
+import PostDetail from "./Pages/PostDetail";
+import Navbar from "./Components/Navbar";
+import UserDetail from "./Pages/UserDetail";
+import Notification from "./Pages/Notification";
+import Bookmark from "./Pages/Bookmark";
+import Footer from "./Components/Footer";
+
+import { Routes, Route } from "react-router-dom";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bg-gray-100 h-screen w-screen realative">
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/post/detail/:id" element={<PostDetail />} />
+        <Route path="/notification" element={<Notification />} />
+        <Route path="/user/details" element={<UserDetail />} />
+      </Routes>
+      <Footer className="absolute bottom-0 " />
     </div>
   );
-}
+};
 
 export default App;
